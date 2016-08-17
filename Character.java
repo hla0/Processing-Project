@@ -26,7 +26,9 @@ public class Character {
 	
 	
 	//changes
-	
+	public void resetLocation(int w,int h,int w1,int h1) {
+        setLocation(loc.getRow() * w / w1, loc.getCol() * h / h1);
+    }
 	
 	//other character
 	public Character collisionCheck(Character a, int rad) {

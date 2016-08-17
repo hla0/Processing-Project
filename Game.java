@@ -18,13 +18,16 @@ public class Game extends PApplet {
 	GameSetup gS;
 	int colorValue;
 	int bulletRadius;
-	
+	int width1;
+	int height1;
 	
 	public void setup() {
 		
 		size(400, 400);
 		gS = new GameSetup(x,y,width,height,player);
 		//changes
+		width1 = width;
+		height1 = height;
 		colorValue = 0;
 		score = 0;
 		bulletRadius = (int)(((width + height) / 2) / ((x + y) / 2)) / 2;
@@ -45,7 +48,13 @@ public class Game extends PApplet {
 		rectWidth = (int) (width / x);
 		rectHeight = (int) (height / y);
 		
+
 		controller.checkKeyboard((int)x,(int)y,width,height);
+		if (width1 != width || height1 != height) {
+            gS.resetLocations(width,height,width1,height1);
+            width1 = width;
+            height1 = height;
+        }
 		player = controller.setPlayer();
 		gridDraw();
 		tokenDraw();

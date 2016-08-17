@@ -52,6 +52,24 @@ public class GameSetup {
 		this.player = player;
 		list = new Square[(int)x][(int)y];
 	}
+
+	public void resetLocations(int w,int h,int w1,int h1) {
+        for (int a = 0; a < enemies.size(); a++) {
+            enemies.get(a).resetLocation(w, h, w1, h1);
+        }
+        for (int a = 0; a < tokens.size(); a++) {
+            tokens.get(a).resetLocation(w, h, w1, h1);
+        }
+        for (int a = 0; a < bullets.size(); a++) {
+            bullets.get(a).resetLocation(w, h, w1, h1);
+        }
+        for (int a = 0; a < boss.size(); a++) {
+            boss.get(a).resetLocation(w, h, w1, h1);
+        }
+        player.resetLocation(w, h, w1, h1);
+    }
+
+
 	
 	public Square[][] getList() {
 		return list;
@@ -90,6 +108,10 @@ public class GameSetup {
 		
 		//System.out.println("occur 2");
 		mapLoc = a;
+	}
+
+	public void addToken(Token t) {
+     token.add(t);
 	}
 	
 	public void removeEnemy(int a) {
