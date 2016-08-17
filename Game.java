@@ -151,6 +151,13 @@ public class Game extends PApplet {
 				gS.removeEnemy(e);
 				player.gainExp(a.getLevel());
 				score = score + (a.getLevel() * 10);
+				int rand = (int)(Math.random() * 100);
+                if (rand <= 50) {
+                    gS.addToken(new BulletToken(a.getLocation(),player,gS.getMapLoc()));
+                }
+                else if (rand <= 75) {
+                    gS.addToken(new HealthToken(a.getLocation(),player,gS.getMapLoc()));
+                }
 			}
 			if (a.getLevel() == 1) {
 				fill(200,220,240);
